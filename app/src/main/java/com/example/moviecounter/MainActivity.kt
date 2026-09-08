@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,14 +28,14 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MovieCounterTheme {
-                CardExample()
+                MovieCounterScreen()
             }
         }
     }
 }
 
 @Composable
-fun CardExample(modifier: Modifier = Modifier) {
+fun MovieCounterScreen(modifier: Modifier = Modifier) {
 
     var checked by remember { mutableStateOf(false) }
 
@@ -44,6 +45,7 @@ fun CardExample(modifier: Modifier = Modifier) {
             .padding(16.dp)
     ) {
 
+        // Componente Card
         Card {
             Text(
                 text = "Movie Counter",
@@ -51,17 +53,25 @@ fun CardExample(modifier: Modifier = Modifier) {
             )
         }
 
+        // Componente Checkbox
         Checkbox(
             checked = checked,
             onCheckedChange = { checked = it }
         )
+
+        // Componente FloatingActionButton
+        FloatingActionButton(
+            onClick = { }
+        ) {
+            Text("+")
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun CardExamplePreview() {
+fun MovieCounterScreenPreview() {
     MovieCounterTheme {
-        CardExample()
+        MovieCounterScreen()
     }
 }
